@@ -695,7 +695,7 @@ int main(void)
     waked = false;
     rtc_wake = false;
 
-    //LED2_ON;
+    LED2_ON;
     executed = 0;
     shdn_cmd = false;
     rec_start = false;
@@ -705,10 +705,10 @@ int main(void)
     turn_off_tmr = 0;
 
     while (1) {
-        if ((FIO0PIN2 & 0x01)) // if Charger present
-            LED1_OFF; // Turn on Red LED
+        if (!(FIO1PIN2 & 0x80)) // if Charger present
+            LED2_OFF; // Turn on Red LED
         else
-            LED1_ON;
+            LED2_ON;
 
         if (rf.rx_rq) {
             rf.rx_rq = false;
@@ -1157,10 +1157,13 @@ void system_init(void)
 
     //  GPIO config
     FIO0DIR0 = 0xD2; // P0.4-P0.6 OUTPUTS
-    FIO0DIR1 = 0x35;
+    if (IS_MASTER)
+      FIO0DIR1 = 0x15;
+    else
+      FIO0DIR1 = 0x35;
     FIO0DIR2 = 0x0C; // P0.18, P0.19, P0.21 OUTPUTS
     FIO0DIR3 = 0x00; // P0.31 OUTPUT LED
-    FIO1DIR2 = 0x80; // P1.16 - LED, P1.20 - ADC_EN
+    FIO1DIR2 = 0x00; // P1.16 - LED, P1.20 - ADC_EN
     FIO1DIR3 = 0x03; // P1.25 - OUTPUT
     // GPIO clear
     FIO0CLR0 = 0xFF;
