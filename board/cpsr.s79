@@ -1,0 +1,37 @@
+;-----------------------------------------------------------------------------
+; This file contains __get_CPSR and __set_CPSR functions used by the ICCARM
+; C compiler.
+;
+; $Revision: 1.2 $
+;
+;-----------------------------------------------------------------------------
+
+;
+; Naming covention of labels in this file:
+;
+;  ?xxx   - External labels only accessed from assembler.
+;  __xxx  - External labels accessed from or defined in C.
+;  xxx    - Labels local to one module (note: this file contains
+;           several modules).
+;
+
+;---------------------------------------------------------------
+; Macros and definitions for the whole file
+;---------------------------------------------------------------
+
+;---------------------------------------------------------------
+        RSEG CODE:CODE:NOROOT(2)
+        CODE32
+    PUBLIC  __get_CPSR
+    PUBLIC  __set_CPSR
+
+__get_CPSR
+        MRS     R0,CPSR
+        BX      LR
+
+
+__set_CPSR
+        MSR     CPSR_c,R0
+        BX      LR
+
+                END
