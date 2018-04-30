@@ -6,135 +6,35 @@
 
 enum COMMAND {
     //Service functions
-    PING, //0 return SOFTWARE_VERSION
+    PING, // return SOFTWARE_VERSION
     //User functions
-    IMPULSE, //1
-    //
-    GET_SETTINGS, //2
-    SET_SETTINGS, //3
-    //
-    GET_STATISTICAL, //4
-    //
-    SET_SNIFFER_MODE, //5
-    SET_SLEEP_MODE, //6
-    //
-    GET_SYSTEM_INFO, //7
-    GET_ACC_AND_GYR_DATA, //8
-    //
-    GET_LEVEL_AND_DURATION_OF_STIMULATION, //9
-    SET_LEVEL_AND_DURATION_OF_STIMULATION, //10
-    //
-    GET_RF_SETTINGS, //11
-    SET_RF_SETTINGS, //12
-    //
-    GET_DATE, //13
-    SET_DATE, //14
-    //
-    GET_PWM_AND_DURATION, //15
-    SET_PWM_AND_DURATION, //16
+    SET_GET_RF_SETTINGS,
+    SET_GET_STIMULATION_SETTINGS,
+    SET_GET_STATISTICS, //Statistics
+    SET_GET_DATE_TIME,
+    GET_BATTERY, //left + right
+    GET_ACC_GYR, //AccGyr
+    GET_STATUS,
+    IMPULSE,
+    ON_OFF,
     //Service functions
-    BUFFER_OVERFLOW, //17
-    WRONG_COMMAND, //18
-    TEXTUAL_PARCEL, //19 for debug (may be)
-    CRC_ERROR, //20
+    BUFFER_OVERFLOW,
+    WRONG_COMMAND,
+    TEXTUAL_PARCEL, //for debug (may be)
+    CRC_ERROR,
 };
 
-enum {
-    POWER_OFF,
-    POWER_ON,
+enum AccGyr {
+    OFF,
+    ON,
+    SINGLE,
 };
 
-enum SKI_SETTINGS {
-    POWER,
-    IMPULSE_AMPLITUDE, //1.2. Параметры импульса1.2.1. Установить амплитуду импульса (десятичное, Вольты)
-    DURATION, //1.3. Продолжительность стимуляции 1.3.1. Целое число в мс от 100 до 300 мс
-    LEAD_TIME, //1.4. Опережение включения/выключения момента стимуляции,//1.4.1. Знаковое целое, кол-во миллисекунд от -50 до 50 мс.
+enum Statistics {
+    RESET,
+    GET_TRAINING,
+    GET_PAUSE,
 };
-
-enum SKI_STATISTICAL {
-    LEFT_BATTERY_CHARGE, //	2.1. Напряжение батареи 2 шт (левая и правая нога) (% заряда 0...100)
-    RIGHT_BATTERY_CHARGE, //	2.1. Напряжение батареи 2 шт (левая и правая нога) (% заряда 0...100)
-    SOFTWARE_VERSION, //	2.2. Версия ПО 1 шт. (строка)
-    TIME_OF_PURE_STIMULATION, //	2.3. Время чистой стимуляции (секунды)
-    AVERAGE_AMPLITUDE_OF_STIMULATION, //	2.4. Средняя амплитуда стимуляции (Вольты) - потом
-    PURE_TRAINING_TIME_WITHOUT_PAUSES, //	2.5. Чистое время тренировки без пауз (секунды)
-    TOTAL_TRAINING_TIME, //	2.6. Общее время тренировки (секунды)
-    TOTAL_PAUSE_TIME, //	2.7. Общее время пауз (секунды)
-    AVERAGE_FREQUENCY_OF_STEPS, //	2.9. Средняя частота шагов при стимуляции ??? (если нетрудоёмко)
-};
-
-#pragma pack(1) //выравнивание на 1, 2, 4, 8 или 16 байт (указывается вместо n)
-typedef struct SkiSettings_t { // считать состояния чипов, напряжения, версию прошивки
-    uint8_t power;
-    uint16_t impulseAmplitude;
-    uint16_t duration;
-    int16_t leadTime;
-} SkiSettings_t;
-
-typedef struct SkiSettingsData_t {
-    uint8_t type; //SKI_SETTINGS or SKI_STATISTICAL
-    int16_t value;
-} SkiSettingsData_t;
-
-typedef struct SkiSysInfo_t { // считать состояния чипов, напряжения, версию прошивки
-    uint8_t accelerometer;
-    uint8_t gyroscope;
-    uint8_t rf;
-    uint8_t battery_voltage;
-    uint8_t impulse_voltage;
-    uint8_t master;
-    uint8_t version;
-} SkiSysInfo_t;
-
-typedef struct SkiAccGyr_t { // считать состояния чипов, напряжения, версию прошивки
-    struct {
-        int8_t x;
-        int8_t y;
-        int8_t z;
-    } acc;
-    struct {
-        int8_t x;
-        int8_t y;
-        int8_t z;
-    } gyr;
-} SkiAccGyr_t;
-
-typedef struct SkiRfSettings_t { // считать состояния чипов, напряжения, версию прошивки
-    uint8_t freq0;
-    uint8_t freq1;
-    uint8_t freq2;
-    uint8_t testb;
-    uint8_t channel;
-    uint8_t address;
-} SkiRfSettings_t;
-
-typedef struct SkiDate_t { // считать состояния чипов, напряжения, версию прошивки
-    uint16_t year;
-    uint8_t month;
-    uint8_t dom;
-    uint8_t hour;
-    uint8_t minute;
-    uint8_t second;
-} SkiDate_t;
-
-typedef struct SkiPwmDuration_t { // считать состояния чипов, напряжения, версию прошивки
-    uint8_t pwm;
-    uint8_t duration;
-} SkiPwmDuration_t;
-
-typedef struct SkiStatistical_t { // считать состояния чипов, напряжения, версию прошивки
-    uint8_t leftBatteryCharge; //	2.1. Напряжение батареи 2 шт (левая и правая нога) (% заряда 0...100)
-    uint8_t rightBatteryCharge; //	2.1. Напряжение батареи 2 шт (левая и правая нога) (% заряда 0...100)
-    uint8_t softwareVersion; //	2.2. Версия ПО 1 шт. (строка)
-    uint16_t timeOfPureStimulation; //	2.3. Время чистой стимуляции (секунды)
-    uint8_t averageAmplitudeOfStimulation; //	2.4. Средняя амплитуда стимуляции (Вольты) - потом
-    uint16_t pureTrainingTimeWithoutPauses; //	2.5. Чистое время тренировки без пауз (секунды)
-    uint16_t totalTrainingTime; //	2.6. Общее время тренировки (секунды)
-    uint16_t totalPauseTime; //	2.7. Общее время пауз (секунды)
-    uint8_t averageFrequencyOfSteps; //	2.9. Средняя частота шагов при стимуляции ??? (если нетрудоёмко)
-} SkiStatistical_t;
-#pragma pack()  //восстанавливает состояние по умолчанию (выравнивание на 32 бита)
-/////////////////////
 enum {
     RX_START = 0xAA55,
     TX_START = 0x55AA,
@@ -147,16 +47,77 @@ enum {
     EUSART_BUFFER_SIZE = 40,
 };
 
-enum { POLYNOMIAL = 0x1D }; // x^8 + x^4 + x^3 + x^2 + 1
+#pragma pack(1) //выравнивание на 1, 2, 4, 8 или 16 байт (указывается вместо n)
+typedef struct RfSettings_t {
+    uint8_t channel;
+    uint8_t address;
+} RfSettings_t;
+
+typedef struct Battery_t {
+    uint8_t left;
+    uint8_t right;
+} Battery_t;
+
+typedef struct StimulationSettings_t {
+    uint8_t voltage;
+    uint16_t duration;
+    uint16_t delay;
+    //int16_t leadTime;
+} StimulationSettings_t;
+
+typedef struct AccGyr_t { // считать состояния чипов, напряжения, версию прошивки
+    struct {
+        int8_t x;
+        int8_t y;
+        int8_t z;
+    } acc;
+    struct {
+        int8_t x;
+        int8_t y;
+        int8_t z;
+    } gyr;
+} AccGyr_t;
+
+typedef struct GetStatistics_t { // считать состояния чипов, напряжения, версию прошивки
+    uint32_t timePause;
+    uint32_t timeStimulatiion;
+    float averageAmplitude;
+    uint16_t steps;
+} GetStatistics_t;
+
+typedef struct SysInfo_t { //STATUS// считать состояния чипов, напряжения, версию прошивки
+    uint8_t acc;
+    uint8_t gyr;
+    uint8_t rf;
+    uint8_t battery_voltage;
+    uint8_t impulse_voltage;
+    uint8_t nLeft_right;
+    uint8_t version;
+} SysInfo_t;
+
+typedef struct DateTime_t { // считать состояния чипов, напряжения, версию прошивки
+    uint16_t year;
+    uint8_t month;
+    uint8_t day;
+    uint8_t hour;
+    uint8_t minute;
+    uint8_t second;
+    uint8_t dom;
+} DateTime_t;
 
 typedef struct Parcel_t {
-    uint8_t start0;   
+    uint8_t start0;
     uint8_t start1;
     uint8_t size;
     uint8_t command;
     uint8_t data[0xFF];
-    uint8_t crc() { return data[size - 5 /*MIN_LENGHT*/]; }
+    uint8_t crc() { return data[size - MIN_LENGHT]; }
 } Parcel_t;
+
+#pragma pack() //восстанавливает состояние по умолчанию (выравнивание на 32 бита)
+/////////////////////
+
+enum { POLYNOMIAL = 0x1D }; // x^8 + x^4 + x^3 + x^2 + 1
 
 typedef enum {
     RX_RESET,
@@ -171,6 +132,9 @@ typedef enum {
 } EusartState_e;
 
 void UartService(void);
+
+void TransmitAccGyr(const AccGyr_t &accGyr);
+
 void TransmitParcel(const uint8_t command, const uint8_t* const data, const uint8_t len);
 void TransmitParcel(const uint8_t command);
 void TransmitText(const uint8_t* data);
