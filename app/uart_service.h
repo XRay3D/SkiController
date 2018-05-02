@@ -133,7 +133,7 @@ typedef enum {
 
 void UartService(void);
 
-void TransmitAccGyr(const AccGyr_t &accGyr);
+void TransmitAccGyr(const AccGyr_t& accGyr);
 
 void TransmitParcel(const uint8_t command, const uint8_t* const data, const uint8_t len);
 void TransmitParcel(const uint8_t command);

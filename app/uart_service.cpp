@@ -1,4 +1,6 @@
 #include "uart_service.h"
+#include "main.h"
+
 uint8_t RxState;
 uint8_t TxState;
 
@@ -39,7 +41,7 @@ const uint8_t crcArray[] = {
 
 extern uart_t uart;
 
-const Parcel_t* txParcel = reinterpret_cast<const Parcel_t*>(uart.tx_buf);
+Parcel_t* const txParcel = reinterpret_cast<Parcel_t* const>(uart.tx_buf);
 const Parcel_t* const rxParcel = reinterpret_cast<const Parcel_t*>(uart.rx_buf);
 
 void RxPing()
@@ -98,7 +100,7 @@ void RxSetGetDateTime()
         DateTime_t date;
         date.year = YEAR;
         date.month = MONTH;
-        date.day = DAY;
+        //date.day = DAY;
         date.hour = HOUR;
         date.minute = MIN;
         date.second = SEC;
@@ -109,7 +111,7 @@ void RxSetGetDateTime()
         const DateTime_t* date = reinterpret_cast<const DateTime_t*>(rxParcel->data);
         YEAR = date->year;
         MONTH = date->month;
-        DAY = date->day;
+        //DAY = date->day;
         HOUR = date->hour;
         MIN = date->minute;
         SEC = date->second;
@@ -332,5 +334,5 @@ void ReceiveIsr()
 
 void TransmitAccGyr(const AccGyr_t& accGyr)
 {
-    TransmitParcel(GET_ACC_GYR, reinterpret_cast<uint8_t*>(&accGyr), sizeof(AccGyr_t));
+    TransmitParcel(GET_ACC_GYR, reinterpret_cast<const uint8_t*>(&accGyr), sizeof(AccGyr_t));
 }
