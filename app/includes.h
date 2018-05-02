@@ -21,7 +21,7 @@
 
 #include <inarm.h>
 #include <iolpc2142.h>
-#include "modules/LPC_Vic.h"
+#include "../modules/LPC_Vic.h"
 
 #include "../cc1101_lib/cc1101_reg.h"
 #include "../cc1101_lib/cc1101_drv.h"

@@ -22,7 +22,7 @@
 @REM but they are listed at the end of this file for reference.
 
 
-"C:\Program Files\IAR Systems\Embedded Workbench 4.0 Evaluation\common\bin\cspybat" "C:\Program Files\IAR Systems\Embedded Workbench 4.0 Evaluation\ARM\bin\armproc.dll" "C:\Program Files\IAR Systems\Embedded Workbench 4.0 Evaluation\ARM\bin\armsim.dll"  %1 --plugin "C:\Program Files\IAR Systems\Embedded Workbench 4.0 Evaluation\ARM\bin\<libsupport_plugin>" --backend -B "--endian" "little" "--cpu" "ARM7TDMI-S" "--fpu" "None" "--proc_device_desc_file" "C:\Program Files\IAR Systems\Embedded Workbench 4.0 Evaluation\ARM\CONFIG\iolpc2142.ddf" "--proc_driver" "sim" 
+"C:\Program Files\IAR Systems\Embedded Workbench 4.0 Evaluation\common\bin\cspybat" "C:\Program Files\IAR Systems\Embedded Workbench 4.0 Evaluation\ARM\bin\armproc.dll" "C:\Program Files\IAR Systems\Embedded Workbench 4.0 Evaluation\ARM\bin\armsim.dll"  %1 --plugin "C:\Program Files\IAR Systems\Embedded Workbench 4.0 Evaluation\ARM\bin\<libsupport_plugin>" --backend -B "--endian" "little" "--cpu" "ARM7TDMI" "--fpu" "None" "--proc_driver" "sim" 
 
 
 @REM loaded plugins:
