@@ -6,16 +6,16 @@
 
 //---------------------------------------------------------------------------
 
-Tsearch::Tsearch(){
-
+Tsearch::Tsearch()
+{
 }
 
-void Tsearch::reset(){
-
+void Tsearch::reset()
+{
 }
 
-void Tsearch::process(){
-
+void Tsearch::process()
+{
 }
 
 void Tsearch::add_data(int data)

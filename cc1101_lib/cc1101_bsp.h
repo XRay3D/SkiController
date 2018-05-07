@@ -9,7 +9,6 @@
 #ifndef CC1101_BSP_H
 #define CC1101_BSP_H
 
-
 #include "cc1101_reg.h"
 #include "cc1101_drv.h"
 

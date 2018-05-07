@@ -32,7 +32,7 @@
             <Factory>Workspace</Factory>
             <Session>
               
-            <NodeDict><ExpandedNode>ski_contriller_pcb_v6</ExpandedNode></NodeDict></Session>
+            <NodeDict><ExpandedNode>ski_contriller_pcb_v6</ExpandedNode><ExpandedNode>ski_contriller_pcb_v6/cc1101</ExpandedNode><ExpandedNode>ski_contriller_pcb_v6/sensors</ExpandedNode><ExpandedNode>ski_contriller_pcb_v6/system</ExpandedNode></NodeDict></Session>
           </Tab>
         </Tabs>
         
@@ -52,14 +52,14 @@
       
       
       
-    <Pane/><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>C:\Users\IEUser\Desktop\SkiController\app\uart_service.cpp</Filename><XPos>0</XPos><YPos>384</YPos><SelStart>472</SelStart><SelEnd>472</SelEnd></Tab><ActiveTab>0</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-007a8d30><key>iaridepm1</key></Toolbar-007a8d30></Sizes></Row0></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>410</Bottom><Right>198</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>200</yscreen><sizeHorzCX>145138</sizeHorzCX><sizeHorzCY>306279</sizeHorzCY><sizeVertCX>145138</sizeVertCX><sizeVertCY>630934</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>198</Bottom><Right>1380</Right><x>-2</x><y>-2</y><xscreen>1382</xscreen><yscreen>200</yscreen><sizeHorzCX>1002903</sizeHorzCX><sizeHorzCY>306279</sizeHorzCY><sizeVertCX>145138</sizeVertCX><sizeVertCY>306279</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-012a8d30><key>iaridepm1</key></Toolbar-012a8d30></Sizes></Row0></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>690</Bottom><Right>198</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>200</yscreen><sizeHorzCX>107643</sizeHorzCX><sizeHorzCY>214362</sizeHorzCY><sizeVertCX>107643</sizeVertCX><sizeVertCY>741693</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>198</Bottom><Right>1860</Right><x>-2</x><y>-2</y><xscreen>1862</xscreen><yscreen>200</yscreen><sizeHorzCX>1002153</sizeHorzCX><sizeHorzCY>214362</sizeHorzCY><sizeVertCX>107643</sizeVertCX><sizeVertCY>214362</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Workspace>
 

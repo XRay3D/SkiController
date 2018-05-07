@@ -29,7 +29,6 @@
 // - средняя частота педалирования/шагов в минуту
 // - сбор статистики с 2х устройств
 
-
 stat_t Stat;
 
 rf_t rf;
@@ -1158,9 +1157,9 @@ void system_init(void)
     //  GPIO config
     FIO0DIR0 = 0xD2; // P0.4-P0.6 OUTPUTS
     if (IS_MASTER)
-      FIO0DIR1 = 0x15;
+        FIO0DIR1 = 0x15;
     else
-      FIO0DIR1 = 0x35;
+        FIO0DIR1 = 0x35;
     FIO0DIR2 = 0x0C; // P0.18, P0.19, P0.21 OUTPUTS
     FIO0DIR3 = 0x00; // P0.31 OUTPUT LED
     FIO1DIR2 = 0x00; // P1.16 - LED, P1.20 - ADC_EN
