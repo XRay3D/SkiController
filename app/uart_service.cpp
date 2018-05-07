@@ -44,12 +44,17 @@ extern uart_t uart;
 Parcel_t* const txParcel = reinterpret_cast<Parcel_t* const>(uart.tx_buf);
 const Parcel_t* const rxParcel = reinterpret_cast<const Parcel_t*>(uart.rx_buf);
 
+////////////////////////////////////////////////////////////////////
+/// \brief RxPing
+///
 void RxPing()
 {
     SysInfo_t sysInfo;
     TransmitParcel(PING, &sysInfo.version, sizeof(uint8_t));
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief RxSetGetRfSettings
+///
 void RxSetGetRfSettings()
 {
     RfSettings_t rf;
@@ -61,7 +66,9 @@ void RxSetGetRfSettings()
         TransmitParcel(SET_GET_RF_SETTINGS);
     }
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief RxSetGetStimulationSettings
+///
 void RxSetGetStimulationSettings()
 {
     StimulationSettings_t stimulationSettings;
@@ -73,7 +80,9 @@ void RxSetGetStimulationSettings()
         TransmitParcel(SET_GET_STIMULATION_SETTINGS);
     }
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief RxSetGetStatistics
+///
 void RxSetGetStatistics()
 {
     GetStatistics_t statisticsTraining;
@@ -93,7 +102,9 @@ void RxSetGetStatistics()
     }
     TransmitParcel(WRONG_COMMAND);
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief RxSetGetDateTime
+///
 void RxSetGetDateTime()
 {
     if (rxParcel->size == MIN_LENGHT) {
@@ -119,13 +130,17 @@ void RxSetGetDateTime()
         TransmitParcel(SET_GET_DATE_TIME);
     }
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief RxGetBattery
+///
 void RxGetBattery()
 {
     Battery_t battery;
     TransmitParcel(GET_BATTERY, reinterpret_cast<uint8_t*>(&battery), sizeof(Battery_t));
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief RxGetAccGyr
+///
 void RxGetAccGyr()
 {
     AccGyr_t accGyr;
@@ -142,19 +157,25 @@ void RxGetAccGyr()
     }
     TransmitParcel(WRONG_COMMAND);
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief RxGetStatus
+///
 void RxGetStatus()
 {
     SysInfo_t sysInfo;
     TransmitParcel(GET_STATUS, reinterpret_cast<uint8_t*>(&sysInfo), sizeof(SysInfo_t));
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief RxImpulse
+///
 void RxImpulse()
 {
     //подать импульс
     TransmitParcel(IMPULSE);
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief RxOnOff
+///
 void RxOnOff()
 {
     uint8_t onOff;
@@ -169,14 +190,13 @@ void RxOnOff()
             TransmitParcel(ON_OFF);
             return;
         case ON:
-            //выключить импульсы
+            //включить импульсы
             TransmitParcel(ON_OFF);
             return;
         }
         TransmitParcel(WRONG_COMMAND);
     }
 }
-
 ////////////////////////////////////////////////////////////////////
 static void (*const Callbacks[])(void) = {
     RxPing,
@@ -190,7 +210,9 @@ static void (*const Callbacks[])(void) = {
     RxImpulse,
     RxOnOff
 };
-
+////////////////////////////////////////////////////////////////////
+/// \brief UartService
+///
 void UartService()
 {
     switch (RxState) {
@@ -214,14 +236,21 @@ void UartService()
     }
     RxState = RX_RESET;
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief StartTransmit
+///
 void StartTransmit()
 {
     TxState = TX_DATA_IS_TRANSMITTED;
     while (TxState)
         TransmitIsr();
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief TransmitParcel
+/// \param command
+/// \param data
+/// \param len
+///
 void TransmitParcel(const uint8_t command, const uint8_t* const data, const uint8_t len)
 {
     while (TxState)
@@ -235,7 +264,10 @@ void TransmitParcel(const uint8_t command, const uint8_t* const data, const uint
     txParcel->data[len] = CalcCrc(uart.tx_buf); //crc
     StartTransmit();
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief TransmitParcel
+/// \param command
+///
 void TransmitParcel(const uint8_t command)
 {
     while (TxState)
@@ -247,7 +279,10 @@ void TransmitParcel(const uint8_t command)
     txParcel->data[0] = CalcCrc(uart.tx_buf); //crc
     StartTransmit();
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief TransmitText
+/// \param data
+///
 void TransmitText(const uint8_t* data)
 {
     while (TxState)
@@ -262,12 +297,19 @@ void TransmitText(const uint8_t* data)
     txParcel->data[i] = CalcCrc(uart.tx_buf); //crc
     StartTransmit();
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief CheckRxParcel
+/// \return
+///
 uint8_t CheckRxParcel()
 {
     return (rxParcel->data[rxParcel->size - MIN_LENGHT] == CalcCrc(uart.rx_buf));
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief CalcCrc
+/// \param data
+/// \return
+///
 uint8_t CalcCrc(uint8_t* data)
 {
     uint8_t crc8 = 0;
@@ -283,7 +325,9 @@ uint8_t CalcCrc(uint8_t* data)
     }
     return crc8;
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief TransmitIsr
+///
 void TransmitIsr()
 {
     static uint8_t txCounter = 0;
@@ -296,7 +340,9 @@ void TransmitIsr()
         continue;
     U0THR = uart.tx_buf[txCounter++];
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief ReceiveIsr
+///
 void ReceiveIsr()
 {
     static uint8_t rxCounter = 0;
@@ -331,7 +377,10 @@ void ReceiveIsr()
         }
     }
 }
-
+////////////////////////////////////////////////////////////////////
+/// \brief TransmitAccGyr
+/// \param accGyr
+///
 void TransmitAccGyr(const AccGyr_t& accGyr)
 {
     TransmitParcel(GET_ACC_GYR, reinterpret_cast<const uint8_t*>(&accGyr), sizeof(AccGyr_t));
