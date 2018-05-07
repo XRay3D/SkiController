@@ -25,7 +25,7 @@
  *
  *    $Revision: 1.2 $
  **************************************************************************/
-#include "../app/includes.h"
+#include "includes.h"
 
 #define IRQ_FLAG 0x80
 

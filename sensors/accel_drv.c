@@ -8,7 +8,7 @@
 
 
 #include "accel_drv.h"
-#include "../app/main.h"
+#include "main.h"
 
 // Функция обмена по SPI, без прерываний
 uint8_t acc_exchange(uint8_t adr, uint8_t dat)

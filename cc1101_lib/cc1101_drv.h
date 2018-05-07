@@ -10,7 +10,7 @@
 #include <stdint.h>
 #include "iolpc2142.h"
 #include <inarm.h>
-#include "../app/main.h"
+#include "main.h"
 
 #define DELAY_100us delay(1000)
 #define RF_CS_ON         FIO1CLR3 = 0x02        // Ножка сигнала nCS (запись)

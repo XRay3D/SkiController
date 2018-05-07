@@ -1,7 +1,7 @@
 #ifndef __MAIN_H
 #define __MAIN_H
 
-#include "../modules/crc.h"
+#include "crc.h"
 
 #define VERSION 84
 // Задержка перед стимуляцией
