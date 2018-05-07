@@ -5,6 +5,7 @@
   <configuration>
     <name>Debug</name>
     <outputs>
+      <file>$TOOLKIT_DIR$\lib\dl4tptinl8n.h</file>
       <file>$PROJ_DIR$\modules\crc.c</file>
       <file>$PROJ_DIR$\cc1101_lib\cc1101_bsp.c</file>
       <file>$PROJ_DIR$\board\cpsr.s79</file>
@@ -67,32 +68,15 @@
       <file>$PROJ_DIR$\Debug\Obj\accel_drv.r79</file>
       <file>$PROJ_DIR$\sensors\accel_drv.h</file>
       <file>$TOOLKIT_DIR$\inc\stdint.h</file>
+      <file>$PROJ_DIR$\LPC2148_flash.xcl</file>
+      <file>$TOOLKIT_DIR$\lib\dl4tptinl8n.r79</file>
     </outputs>
     <file>
       <name>$PROJ_DIR$\modules\crc.c</name>
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 17</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 21</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 53 61 16 41 55 44 28</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\cc1101_lib\cc1101_bsp.c</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 23</file>
+          <file> 18</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -101,8 +85,35 @@
       </outputs>
       <inputs>
         <tool>
+          <name>ICCARM</name>
+          <file> 54 62 17 42 0 56 45 29</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
-          <file> 20 61 16 41 55 44 28 42 30 19 32 38 33 53 25 24</file>
+          <file> 54 62 17 42 56 45 29</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\cc1101_lib\cc1101_bsp.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 24</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 23</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 21 62 17 42 0 56 45 29 43 31 20 33 39 34 54 26 25</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21 62 17 42 56 45 29 43 31 20 33 39 34 54 26 25</file>
         </tool>
       </inputs>
     </file>
@@ -111,7 +122,7 @@
       <outputs>
         <tool>
           <name>AARM</name>
-          <file> 26</file>
+          <file> 27</file>
         </tool>
       </outputs>
     </file>
@@ -120,17 +131,21 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 47</file>
+          <file> 48</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 13</file>
+          <file> 14</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
+          <name>ICCARM</name>
+          <file> 21 62 17 42 0 56 45 29 43 31 20 33 39 34 54</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
-          <file> 20 61 16 41 55 44 28 42 30 19 32 38 33 53</file>
+          <file> 21 62 17 42 56 45 29 43 31 20 33 39 34 54</file>
         </tool>
       </inputs>
     </file>
@@ -139,26 +154,7 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 59</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 57</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 60 61 16 41 55 44 28 42 30 19 32 38 33 53</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\sensors\hyro_drv.c</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 43</file>
+          <file> 60</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -167,8 +163,35 @@
       </outputs>
       <inputs>
         <tool>
+          <name>ICCARM</name>
+          <file> 61 62 17 42 0 56 45 29 43 31 20 33 39 34 54</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
-          <file> 50 61 16 41 55 44 28 42 30 19 32 38 33 53</file>
+          <file> 61 62 17 42 56 45 29 43 31 20 33 39 34 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sensors\hyro_drv.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 44</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 59</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 51 62 17 42 0 56 45 29 43 31 20 33 39 34 54</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 51 62 17 42 56 45 29 43 31 20 33 39 34 54</file>
         </tool>
       </inputs>
     </file>
@@ -177,7 +200,7 @@
       <outputs>
         <tool>
           <name>AARM</name>
-          <file> 45</file>
+          <file> 46</file>
         </tool>
       </outputs>
     </file>
@@ -186,17 +209,30 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 27</file>
+          <file> 28</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 56</file>
+          <file> 57</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
+          <name>ICCARM</name>
+          <file> 19 50 15 17 42 0 56 45 29 52 32 37 53 33 39 43 31 20 25 21 62 34 54 26 61 51 47 40 13</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
-          <file> 18 49 14 16 41 55 44 28 51 31 36 52 32 38 42 30 19 24 20 61 33 53 25 60 50 46 39 12</file>
+          <file> 19 50 15 17 42 56 45 29 52 32 37 53 33 39 43 31 20 25 21 62 34 54 26 61 51 47 40 13</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\ski_contriller_pcb_v6.d79</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 63 28 60 30 24 48 27 18 44 46 55 38 64</file>
         </tool>
       </inputs>
     </file>
@@ -205,17 +241,21 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 54</file>
+          <file> 55</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 40</file>
+          <file> 41</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
+          <name>ICCARM</name>
+          <file> 50 15 17 42 0 56 45 29 52 32 37 53 33 39 43 31 20 19 25 21 62 34 54 26 61 51 47 40 13 49</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
-          <file> 49 14 16 41 55 44 28 51 31 36 52 32 38 42 30 19 18 24 20 61 33 53 25 60 50 46 39 12 48</file>
+          <file> 50 15 17 42 56 45 29 52 32 37 53 33 39 43 31 20 19 25 21 62 34 54 26 61 51 47 40 13 49</file>
         </tool>
       </inputs>
     </file>
@@ -224,17 +264,21 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 29</file>
+          <file> 30</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 35</file>
+          <file> 36</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
+          <name>ICCARM</name>
+          <file> 47 40 13 17 42 0 56 45 29 62</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
-          <file> 46 39 12 16 41 55 44 28 61</file>
+          <file> 47 40 13 17 42 56 45 29 62</file>
         </tool>
       </inputs>
     </file>
@@ -243,17 +287,21 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 37</file>
+          <file> 38</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 34</file>
+          <file> 35</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
+          <name>ICCARM</name>
+          <file> 49 62 17 42 0 56 45 29 50 15 52 32 37 53 33 39 43 31 20 19 25 21 34 54 26 61 51 47 40 13</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
-          <file> 48 61 16 41 55 44 28 49 14 51 31 36 52 32 38 42 30 19 18 24 20 33 53 25 60 50 46 39 12</file>
+          <file> 49 62 17 42 56 45 29 50 15 52 32 37 53 33 39 43 31 20 19 25 21 34 54 26 61 51 47 40 13</file>
         </tool>
       </inputs>
     </file>
@@ -262,7 +310,7 @@
       <inputs>
         <tool>
           <name>BILINK</name>
-          <file> 56 57 35 22 13 21 58 40 34</file>
+          <file> 57 58 36 23 14 22 59 41 35</file>
         </tool>
       </inputs>
     </file>
@@ -271,7 +319,7 @@
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 8</file>
+          <file> 9</file>
         </tool>
       </outputs>
     </file>

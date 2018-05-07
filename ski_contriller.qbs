@@ -10,11 +10,13 @@ Product {
     property string iarInc: "C:/Program Files/IAR Systems/Embedded Workbench 4.0 Evaluation/ARM/inc"
 
     cpp.defines: [
-        "__STDC_CONSTANT_MACROS",
-        "__INT8_T_TYPE__",
-        "__INT16_T_TYPE__",
-        "__INT32_T_TYPE__",
-        "__INT64_T_TYPE__"
+        //для правильной подсветки
+        "int8_t=char",
+        "uint8_t=unsigned char",
+        "int16_t=short",
+        "uint16_t=unsigned short",
+        "int32_t=int",
+        "uint32_t=unsigned int",
     ]
 
     cpp.debugInformation: true

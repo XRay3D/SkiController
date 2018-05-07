@@ -52,7 +52,7 @@
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>C:\Users\IEUser\Desktop\SkiController\app\uart_service.cpp</Filename><XPos>0</XPos><YPos>384</YPos><SelStart>472</SelStart><SelEnd>472</SelEnd></Tab><ActiveTab>0</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>C:\Users\IEUser\Desktop\SkiController\app\uart_service.cpp</Filename><XPos>0</XPos><YPos>384</YPos><SelStart>472</SelStart><SelEnd>472</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>C:\Users\IEUser\Desktop\SkiController\app\main.cpp</Filename><XPos>0</XPos><YPos>1095</YPos><SelStart>33301</SelStart><SelEnd>33301</SelEnd></Tab><ActiveTab>1</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
